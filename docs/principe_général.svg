@@ -49,8 +49,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="629.68545"
-     inkscape:cy="449.06646"
+     inkscape:cx="534.68545"
+     inkscape:cy="351.9236"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -67,7 +67,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -313,7 +313,7 @@
          style="font-size:16px;line-height:0.25"
          id="flowPara4870" /><flowPara
          style="font-size:16px;line-height:0.25"
-         id="flowPara4872">- scripts d'allumage, d'extinction, de lancement, d'installation, ...</flowPara></flowRoot>    <flowRoot
+         id="flowPara4872">- scripts d'allumage, d'extinction, de redémarrage, de lancement, d'installation, ...</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4856"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
@@ -323,7 +323,7 @@
            height="200"
            x="472.14285"
            y="292.27225" /></flowRegion><flowPara
-         id="flowPara4862"></flowPara></flowRoot>    <rect
+         id="flowPara4862" /></flowRoot>    <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.88599998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4874"
        width="50.513943"
@@ -398,5 +398,47 @@
          id="flowPara4892-7">- 3 machines windows, mac et linux</flowPara><flowPara
          id="flowPara4936">- 2 VP</flowPara><flowPara
          id="flowPara4942">- 1 télécommande</flowPara><flowPara
-         id="flowPara4938" /></flowRoot>  </g>
+         id="flowPara4938" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4624-2-9-3"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,2.2792992,123.28975)"><flowRegion
+         id="flowRegion4626-9-3-6"><rect
+           id="rect4628-1-6-7"
+           width="260.61932"
+           height="278.80215"
+           x="19.192898"
+           y="251.24884" /></flowRegion><flowPara
+         id="flowPara4630-2-0-5"
+         style="font-size:21.33333397px">- Filtrage par nom</flowPara><flowPara
+         style="font-size:21.33333397px"
+         id="flowPara159">- Actions planifiées</flowPara><flowPara
+         style="font-size:21.33333397px"
+         id="flowPara4634-7-6-2" /><flowPara
+         id="flowPara4632-0-2-9"
+         style="font-size:21.33333397px" /></flowRoot>    <path
+       id="path161"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.965;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       sodipodi:type="arc"
+       sodipodi:cx="201.46132"
+       sodipodi:cy="158.28273"
+       sodipodi:rx="21.544643"
+       sodipodi:ry="5.4806547"
+       sodipodi:start="3.1284325"
+       sodipodi:end="6.2010304"
+       sodipodi:open="true"
+       d="m 179.91854,158.35485 a 21.544643,5.4806547 0 0 1 20.5164,-5.54655 21.544643,5.4806547 0 0 1 22.49836,5.02467" />
+    <path
+       id="path120"
+       sodipodi:type="arc"
+       sodipodi:cx="201.5558"
+       sodipodi:cy="203.54539"
+       sodipodi:rx="21.828125"
+       sodipodi:ry="4.630208"
+       sodipodi:start="3.1284329"
+       sodipodi:end="6.2010327"
+       sodipodi:open="true"
+       d="m 179.72957,203.60633 a 21.828125,4.630208 0 0 1 20.78638,-4.68589 21.828125,4.630208 0 0 1 22.79436,4.245"
+       style="fill:none;stroke:#000000;stroke-width:0.96499997;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
 </svg>

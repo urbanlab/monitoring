@@ -58,4 +58,4 @@ $piedDePage = new Footer();
 $piedDePage = $piedDePage->getVue();
 
 
-echo $enTete . $navbar . $piedDePage;
+echo $enTete . $navbar . $corpsDePage . $piedDePage;

@@ -18,7 +18,7 @@ class ListePrototypes
     /**
      * @var array La liste des objets prototypes avec leurs données correspondantes.
      */
-    protected $tableauPrototypes = array();
+    public $tableauPrototypes = array();
 
     /**
      * ListePrototypes constructor. Va chercher les données des prototypes dont on a la liste.

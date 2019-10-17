@@ -17,11 +17,34 @@ include_once __DIR__ . '/vueAbstraite.class.php';
 include_once __DIR__ . '/../ListePrototypes.class.php';
 class VueAccueil extends VueAbstraite
 {
-    protected $vue = '';
+    protected $vue = '
+<h1 id="titreAccueil">Liste des prototypes</h1>
+<div id="tableauPrototypes">';
 
     public function __construct(ListePrototypes $listeProto)
     {
-        var_dump($listeProto);
+        $this->vue .= '
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>État actuel</th>
+        <th>Actions</th>
+    </tr>';
+        foreach ($listeProto->tableauPrototypes as $proto) {
+            $this->vue .= '
+    <tr>
+        <td>' . $proto->nomPrototype . '</td>
+        <td></td>
+        <td>
+            <button type="button" class="btn btn-primary">Rafraîchir</button>
+            <button type="button" class="btn btn-success">Allumer</button>
+            <button type="button" class="btn btn-warning">Redémarrer</button>
+            <button type="button" class="btn btn-danger">Éteindre</button>
+        </td>';
+        }
+        $this->vue .= '
+</table></div>';
+
     }
 
     function getVue()

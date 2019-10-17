@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 include_once __DIR__ . '/prototypeAbstrait.class.php';
 class PlusBelleLaSemaine extends prototype
 {
-
+    public $nomPrototype = 'Plus belle la semaine';
 
     public function __construct()
     {

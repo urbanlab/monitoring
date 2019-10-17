@@ -18,7 +18,7 @@ class ListePrototypes
     /**
      * @var array La liste des objets prototypes avec leurs données correspondantes.
      */
-    private $tableauPrototypes = array();
+    protected $tableauPrototypes = array();
 
     /**
      * ListePrototypes constructor. Va chercher les données des prototypes dont on a la liste.
@@ -28,6 +28,7 @@ class ListePrototypes
         foreach ($listePrototypes as $prototype) {
             include_once __DIR__ . '/prototype' . $prototype . '.class.php';
             $proto = new $prototype();
+            array_push($this->tableauPrototypes, $proto);
         }
     }
 

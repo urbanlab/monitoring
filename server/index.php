@@ -48,6 +48,10 @@ $enTete = $enTete->getVue();
 include_once __DIR__ . '/src/vue/NavBar.class.php';
 $navbar = new NavBar();
 $navbar = $navbar->getVue();
+// Corps de page
+include_once __DIR__ . '/src/vue/VueAccueil.class.php';
+$corpsDePage = new VueAccueil($donneesPrototypes);
+$corpsDePage = $corpsDePage->getVue();
 // PIed de page
 include_once __DIR__ . '/src/vue/Footer.class.php';
 $piedDePage = new Footer();

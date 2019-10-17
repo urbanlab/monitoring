@@ -1,10 +1,17 @@
-# monitoring
+# Monitoring du lab
+
 Système de gestion/monitoring du lab ERASME
 
 
+## Étape 1 : Installation du serveur
 
+Connectez-vous sur le serveur de monitoring du lab.
 
+```bash
+ssh root@labmonitoring.erasme.lan
+```
 
+Placez les fichiers et dossiers de monitoring/server/src dans */var/www/html/* .
 
 
 

@@ -18,6 +18,12 @@ class PlusBelleLaSemaine extends prototype
 {
     public $nomPrototype = 'Plus belle la semaine';
 
+    public $peutRafraichir = ' disabled';
+    public $peutAllumer = '';
+    public $peutRedemarrer = ' disabled';
+    public $peutEteindre = ' disabled';
+    public $peutReinstaller = ' disabled';
+
     public function __construct()
     {
 
@@ -46,6 +52,11 @@ class PlusBelleLaSemaine extends prototype
     protected function redemarrerPrototype()
     {
         // TODO: Implement redemarrerPrototype() method.
+    }
+
+    protected function reinstallerPrototype()
+    {
+        // TODO: Implement reinstallerPrototype() method.
     }
 
 

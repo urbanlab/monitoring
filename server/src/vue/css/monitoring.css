@@ -13,3 +13,7 @@
 th {
     text-align: center;
 }
+
+td button {
+    margin-left: 15px;
+}

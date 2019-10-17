@@ -24,4 +24,6 @@ abstract class prototype
     abstract protected function eteindrePrototype();
 
     abstract protected function redemarrerPrototype();
+
+    abstract protected function reinstallerPrototype();
 }

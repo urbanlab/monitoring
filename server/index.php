@@ -13,8 +13,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-echo 'toto';
-
 /*
  * L'application fonctionne ainsi :
  * CAS BASIQUE
@@ -26,3 +24,34 @@ echo 'toto';
  * - le serveur lit les actions correspondant à cette requête et les effectue puis met à jour ses informations de statut.
  */
 
+/*
+ * CONFIGURATION
+ */
+
+// Commentez la ligne du prototype dont vous souhaitez désactiver le monitoring.
+$prototypesAGerer = array(
+    // Nom du prototype => Nom de la classe qui le gère (située dans le fichier prototypeNomDeLaClasse.class.php ).
+    'Plus Belle La Semaine' => 'PlusBelleLaSemaine',
+);
+
+
+
+
+include_once __DIR__ . '/src/ListePrototypes.class.php';
+$donneesPrototypes = new ListePrototypes($prototypesAGerer);
+
+// En-tête
+include_once __DIR__ . '/src/vue/EnTete.class.php';
+$enTete = new EnTete();
+$enTete = $enTete->getVue();
+// Barre de navigation
+include_once __DIR__ . '/src/vue/NavBar.class.php';
+$navbar = new NavBar();
+$navbar = $navbar->getVue();
+// PIed de page
+include_once __DIR__ . '/src/vue/Footer.class.php';
+$piedDePage = new Footer();
+$piedDePage = $piedDePage->getVue();
+
+
+echo $enTete . $navbar . $piedDePage;

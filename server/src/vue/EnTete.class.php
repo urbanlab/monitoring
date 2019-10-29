@@ -36,6 +36,7 @@ class EnTete extends VueAbstraite
 
     <title>Monitoring des prototypes du lab</title>
   </head>
+  
   <body>';
 
 

@@ -13,4 +13,19 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-echo 'test';
+if (isset($_GET['proto']) && isset($_GET['action'])) {
+
+
+    switch ($_GET['proto']){
+        case 'Plus belle la semaine':
+            switch ($_GET['action']){
+                case 'allumer':
+                    include_once __DIR__ . '/src/prototypePlusBelleLaSemaine.class.php';
+                    $prototype = new PlusBelleLaSemaine();
+                    echo $prototype->allumerPrototype();
+                    break;
+            }
+
+            break;
+    }
+}

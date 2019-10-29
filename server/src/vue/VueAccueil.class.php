@@ -37,7 +37,7 @@ class VueAccueil extends VueAbstraite
         <td></td>
         <td>
             <button type="button" ' . $proto->peutRafraichir . ' class="btn btn-outline-primary">Rafraîchir</button>
-            <button type="button" ' . $proto->peutAllumer . ' class="btn btn-outline-success" onclick="action();">Allumer</button>
+            <button type="button" ' . $proto->peutAllumer . ' class="btn btn-outline-success" onclick="action(\'' .$proto->nomPrototype . '\', \'allumer\');">Allumer</button>
             <button type="button" ' . $proto->peutRedemarrer . ' class="btn btn-outline-warning">Redémarrer</button>
             <button type="button" ' . $proto->peutEteindre . ' class="btn btn-outline-dark">Éteindre</button>
             <button type="button" ' . $proto->peutReinstaller . ' class="btn btn-outline-danger">Réinstaller</button>

@@ -3,9 +3,9 @@ function action(prototype='', action='') {
     xmlhttp.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200) {
-            console.log('tutu');
+            console.log(this.responseText);
         }
     };
-    xmlhttp.open("GET", "http://192.168.71.201/server/ajaxController.php?page=ajax", true);
+    xmlhttp.open("GET", "http://192.168.71.201/server/ajaxController.php?proto=" + prototype + "&action=" + action, true);
     xmlhttp.send();
 }

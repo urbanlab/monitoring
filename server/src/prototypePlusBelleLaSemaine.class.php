@@ -39,22 +39,24 @@ class PlusBelleLaSemaine extends prototype
      * - allumer la machine principale (la grande table tactile)
      * - une fois la machine allumée, ouvrir firefox avec une url particulière.
      */
-    protected function allumerPrototype()
+    public function allumerPrototype()
     {
+        // todo : créer un objet « machine » qui pourra allumer et qui gérera les appels à son tour.
+        shell_exec('wakeonlan b8:ae:ed:73:9d:3f');
         return 'allumage';
     }
 
-    protected function eteindrePrototype()
+    public function eteindrePrototype()
     {
         // TODO: Implement eteindrePrototype() method.
     }
 
-    protected function redemarrerPrototype()
+    public function redemarrerPrototype()
     {
         // TODO: Implement redemarrerPrototype() method.
     }
 
-    protected function reinstallerPrototype()
+    public function reinstallerPrototype()
     {
         // TODO: Implement reinstallerPrototype() method.
     }

@@ -18,11 +18,16 @@ class PlusBelleLaSemaine extends prototype
 {
     public $nomPrototype = 'Plus belle la semaine';
 
+    /*
+     * Mettre la valeur ' disabled' pour désactiver un bouton.
+     */
     public $peutRafraichir = ' disabled';
     public $peutAllumer = '';
     public $peutRedemarrer = ' disabled';
-    public $peutEteindre = ' disabled';
+    public $peutEteindre = ' ';
     public $peutReinstaller = ' disabled';
+
+    public $etatCourant = 'éteint';
 
     public function __construct()
     {
@@ -41,14 +46,39 @@ class PlusBelleLaSemaine extends prototype
      */
     public function allumerPrototype()
     {
-        // todo : créer un objet « machine » qui pourra allumer et qui gérera les appels à son tour.
-        shell_exec('wakeonlan b8:ae:ed:73:9d:3f');
+        // Allumage de la table tactile.
+        //shell_exec('wakeonlan b8:ae:ed:73:9d:3f');
+        $this->etatCourant = 'allumage';
+        // Ce n'est pas suffisant, la machine est allumée mais, contrairement aux autres prototypes,
+        // plusieurs logiciels peuvent être lancés sur cette table tactile.
+        // La solution est de mettre une tâche en attente dans une base de données jusqu'à ce que la table tactile
+        // prévienne le serveur qu'elle est allumée. Une fois le serveur prévenu, il activera cette tâche en attente.
+        $db = new PDO("sqlite:". dirname(dirname(__FILE__)) . '/database/monitoring.db');
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $req = $db->prepare('INSERT INTO taches_en_attente ( action, machine) VALUES(?, ?)');
+
+        try
+        {
+            $db->beginTransaction();
+            $req->execute([
+                'lancer plusBelleLaSemaine',
+                'table_tactile'
+            ]);
+            $db->commit();
+            return 'tata';
+        }
+        catch(PDOException $e)
+        {
+            $db->rollback();
+            print "Error!: " . $e->getMessage() . "</br>";
+        }
         return 'allumage';
     }
 
     public function eteindrePrototype()
     {
-        // TODO: Implement eteindrePrototype() method.
+
     }
 
     public function redemarrerPrototype()

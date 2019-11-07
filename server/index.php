@@ -34,7 +34,7 @@ $prototypesAGerer = array(
     'Plus Belle La Semaine' => 'PlusBelleLaSemaine',
 );
 
-var_dump($_REQUEST);
+var_dump($_POST);
 
 
 include_once __DIR__ . '/src/ListePrototypes.class.php';

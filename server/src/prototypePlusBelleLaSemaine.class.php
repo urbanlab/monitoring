@@ -66,7 +66,6 @@ class PlusBelleLaSemaine extends prototype
                 'table_tactile'
             ]);
             $db->commit();
-            return 'tata';
         }
         catch(PDOException $e)
         {

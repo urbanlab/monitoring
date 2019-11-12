@@ -13,7 +13,38 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// todo remplacer request par post ou get.
-if( isset($_POST[''])) {
 
+if( isset($_POST['action'])) {
+    switch ($_POST['action']) {
+        case 'salut':
+            ajoutPrototype($_POST['ipMachine'], $_POST['macMachine'], $_POST['nomMachine']);
+            break;
+        default:
+            break;
+
+    }
+}
+
+
+function ajoutPrototype($ipMachine, $adresseMACMachine, $nomMachine) {
+    $db = new PDO("sqlite:". dirname(dirname(__FILE__)) . '/server/database/monitoring.db');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $req = $db->prepare('INSERT INTO machines_allumees ( ip_machine, adresse_mac_machine, nom_machine) VALUES(?, ?, ?)');
+
+    try
+    {
+        $db->beginTransaction();
+        $req->execute([
+            $ipMachine,
+            $adresseMACMachine,
+            $nomMachine
+        ]);
+        $db->commit();
+    }
+    catch(PDOException $e)
+    {
+        $db->rollback();
+        print "Error!: " . $e->getMessage() . "</br>";
+    }
 }

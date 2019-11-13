@@ -47,7 +47,7 @@ class PlusBelleLaSemaine extends prototype
     public function allumerPrototype()
     {
         // Allumage de la table tactile.
-        //shell_exec('wakeonlan b8:ae:ed:73:9d:3f');
+        shell_exec('wakeonlan b8:ae:ed:73:9d:3f');
         $this->etatCourant = 'allumage';
         // Ce n'est pas suffisant, la machine est allumée mais, contrairement aux autres prototypes,
         // plusieurs logiciels peuvent être lancés sur cette table tactile.

@@ -18,11 +18,37 @@ if( isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'salut':
             ajoutPrototype($_POST['ipMachine'], $_POST['macMachine'], $_POST['nomMachine']);
+            // Y a-t-il une action en attente pour cette machine ?
+            var_dump($_POST);
+            $requetesEnAttente = getRequetesEnAttente();
             break;
         default:
             break;
-
     }
+}
+
+
+function getRequetesEnAttente() {
+    $db = new PDO("sqlite:". dirname(dirname(__FILE__)) . '/server/database/monitoring.db');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $req = $db->prepare('SELECT * FROM taches_en_attente WHERE machine = ?');
+
+    try
+    {
+        $db->beginTransaction();
+        $req->execute([
+            $_POST['nomMachine']
+        ]);
+        $db->commit();
+        $donnees = $req->fetchAll();
+    }
+    catch(PDOException $e)
+    {
+        $db->rollback();
+        print "Error!: " . $e->getMessage() . "</br>";
+    }
+    var_dump($donnees);
 }
 
 

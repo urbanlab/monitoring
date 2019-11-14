@@ -19,8 +19,8 @@ if( isset($_POST['action'])) {
         case 'salut':
             ajoutPrototype($_POST['ipMachine'], $_POST['macMachine'], $_POST['nomMachine']);
             // Y a-t-il une action en attente pour cette machine ?
-            var_dump($_POST);
-            $requetesEnAttente = getRequetesEnAttente();
+            $requetesEnAttente = getRequetesEnAttente($_POST['macMachine']);
+            var_dump($requetesEnAttente);
             break;
         default:
             break;
@@ -28,7 +28,9 @@ if( isset($_POST['action'])) {
 }
 
 
-function getRequetesEnAttente() {
+function getRequetesEnAttente($nomMachine='') {
+    $donnees =array();
+
     $db = new PDO("sqlite:". dirname(dirname(__FILE__)) . '/server/database/monitoring.db');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -38,7 +40,7 @@ function getRequetesEnAttente() {
     {
         $db->beginTransaction();
         $req->execute([
-            $_POST['nomMachine']
+            $nomMachine
         ]);
         $db->commit();
         $donnees = $req->fetchAll();
@@ -48,7 +50,7 @@ function getRequetesEnAttente() {
         $db->rollback();
         print "Error!: " . $e->getMessage() . "</br>";
     }
-    var_dump($donnees);
+    return $donnees;
 }
 
 

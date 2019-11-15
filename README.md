@@ -14,17 +14,35 @@ ssh root@labmonitoring.erasme.lan
 Placez les fichiers et dossiers de monitoring/server/src dans */var/www/html/* .
 
 
-
-
-
-
-
-
-
-
-
-
 # Liste complète des dispositifs
+
+## Plus belle la semaine
+
+Nous n'avons pas le contrôle sur cette application. Elle consiste pour nous à ouvrir une page dans un navgateur web
+(conexion internet requise).
+
+Le problème vient que plusieurs prototypes/applications peuvent être installées/utilisées/monitorées sur la même
+machine : la table tactile. En l'occurence, nous avons, pour le moment, *museotouch* installé également sur ce même
+appareil.
+
+La solution est donc de placer une tâche en attente dans une base de données SQLite si une application est lancée depuis
+l'interface de monitoring. Une fois la table tactile allumée, le serveur vérifie quelles sont les actions en attente et
+les lancera.
+
+```pseudo-code
+    1 serveur       : réception d'une demande de lancement d'une application.
+    2 serveur       : démarrage de la table tactile en wake-on-lan.
+    3 serveur       : mémorisation de la tâche « lancer plus belle la semaine » en base de données.
+    4 table tactile : allumée par le wake-on-lan (2)
+    5 table tactile : envoi d'un signal au serveur pour prévenir de son état « allumé ».
+    6 serveur       : recherche et découverte d'une action en attente dans la base de données correspondant à la machine ayant envoyé le signal.
+    7 serveur       : envoi d'une commnde ssh pour lancer l'application « plus belle la semaine ».  
+``` 
+
+## MUSEOTOUCH
+
+
+
 
 ## indispensable
 

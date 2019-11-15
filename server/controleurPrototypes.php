@@ -19,11 +19,30 @@ if( isset($_POST['action'])) {
         case 'salut':
             ajoutPrototype($_POST['ipMachine'], $_POST['macMachine'], $_POST['nomMachine']);
             // Y a-t-il une action en attente pour cette machine ?
-            $requetesEnAttente = getRequetesEnAttente($_POST['macMachine']);
-            var_dump($requetesEnAttente);
+            $requetesEnAttente = getRequetesEnAttente($_POST['nomMachine']);
+            accomplirAction($requetesEnAttente);
             break;
         default:
             break;
+    }
+}
+
+function accomplirAction(array $actions=array()) {
+    foreach ($actions as $action) {
+        switch ($action['machine']) {
+            case 'table_tactile':
+                switch ($action['action']) {
+                    case 'lancer plusBelleLaSemaine':
+                        shell_exec("ssh erasme@192.168.91.102 'DISPLAY=:0 firefox -new-tab \"https://plusbellelasemaine.erasme.org/\"'");
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+
+        }
     }
 }
 

@@ -21,6 +21,7 @@ if( isset($_POST['action'])) {
             // Y a-t-il une action en attente pour cette machine ?
             $requetesEnAttente = getRequetesEnAttente($_POST['nomMachine']);
             accomplirAction($requetesEnAttente);
+            supprimerAction($requetesEnAttente['id_tache']);
             break;
         default:
             break;
@@ -43,6 +44,28 @@ function accomplirAction(array $actions=array()) {
                 break;
 
         }
+    }
+}
+
+
+function supprimerAction($idAction=0) {
+    $db = new PDO("sqlite:". dirname(dirname(__FILE__)) . '/server/database/monitoring.db');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $req = $db->prepare('DELETE FROM taches_en_attente WHERE id_tache = ?');
+
+    try
+    {
+        $db->beginTransaction();
+        $req->execute([
+            $idAction
+        ]);
+        $db->commit();
+    }
+    catch(PDOException $e)
+    {
+        $db->rollback();
+        print "Error!: " . $e->getMessage() . "</br>";
     }
 }
 

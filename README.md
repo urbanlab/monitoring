@@ -18,6 +18,15 @@ Placez les fichiers et dossiers de monitoring/server/src dans */var/www/html/* .
 
 ## Plus belle la semaine
 
+### Pré-requis
+
+Nous voulons faire tourner la machine tactile sous linux pour un meilleur contrôle. Pour cela assurons-nous de :
+- avoir curl installé
+- avoir openssh-server installé
+- avoir la clef SSH publique de la machine serveur comme origine acceptée sur le SSH de la table tactile. 
+
+### Explications générales
+
 Nous n'avons pas le contrôle sur cette application. Elle consiste pour nous à ouvrir une page dans un navgateur web
 (conexion internet requise).
 
